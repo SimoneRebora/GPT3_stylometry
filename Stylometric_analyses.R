@@ -161,7 +161,7 @@ write.csv(result_tmp, file = "Stylometry_baseline.csv")
 ######
 
 # find all directories with GPT3 results
-all_dirs <- list.files(path = "GPT3", include.dirs = T, full.names = T)
+all_dirs <- list.files(path = "GPT3", pattern = "try", include.dirs = T, full.names = T)
 
 # prepare new test set
 test_texts <- vector(mode = "list", length = 10)
