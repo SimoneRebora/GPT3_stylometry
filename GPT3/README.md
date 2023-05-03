@@ -1,0 +1,1 @@
+This folder is prepared to contain the texts generated bu the **gpt3_create_novels.py** script.

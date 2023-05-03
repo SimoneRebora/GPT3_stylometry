@@ -1,0 +1,33 @@
+directory,prompt,model,temperature
+try01,Write a chapter of a novel in the style of <my_author>,text-davinci-003,0.9
+try02,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-davinci-003,0.9
+try03,Write a chapter of a novel in the style of <my_author>,text-davinci-003,0.1
+try04,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-davinci-003,0.1
+try05,Write a chapter of a novel in the style of <my_author>,text-curie-001,0.9
+try06,Write a chapter of a novel in the style of <my_author>,text-curie-001,0.1
+try07,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-curie-001,0.9
+try08,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-curie-001,0.1
+try09,Write a chapter of a novel in the style of <my_author>,text-babbage-001,0.9
+try10,Write a chapter of a novel in the style of <my_author>,text-babbage-001,0.1
+try11,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-babbage-001,0.9
+try12,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-babbage-001,0.1
+try13,Write a chapter of a novel in the style of <my_author>,text-ada-001,0.9
+try14,Write a chapter of a novel in the style of <my_author>,text-ada-001,0.1
+try15,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-ada-001,0.9
+try16,"Write a novel with a complex structure. It should incude many events, dialogues, and descriptions. Write like <my_author>",text-ada-001,0.1
+try17,Write a novel by imitating <my_author>,text-davinci-003,0.9
+try18,Write a novel by imitating <my_author>,text-davinci-003,0.1
+try19,Write a novel by imitating <my_author>,text-curie-001,0.9
+try20,Write a novel by imitating <my_author>,text-curie-001,0.1
+try21,Write a novel by imitating <my_author>,text-babbage-001,0.9
+try22,Write a novel by imitating <my_author>,text-babbage-001,0.1
+try23,Write a novel by imitating <my_author>,text-ada-001,0.9
+try24,Write a novel by imitating <my_author>,text-ada-001,0.1
+try25,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-davinci-003,0.9
+try26,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-davinci-003,0.1
+try27,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-curie-001,0.9
+try28,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-curie-001,0.1
+try29,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-babbage-001,0.9
+try30,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-babbage-001,0.1
+try31,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-ada-001,0.9
+try32,Write a story as if it were written by <my_author>. Give it the structure typical of <my_author>'s narratives,text-ada-001,0.1
