@@ -18,12 +18,12 @@ df = pd.read_csv("gpt3_features.csv")
 for my_try in range(0, len(df)):
 
   # verify if dir already exists (so files were already generated)
-  if os.path.exists(df["directory"][my_try]):
+  if os.path.exists("GPT3/"+df["directory"][my_try]):
     print(df["directory"][my_try], "already done\n")
   
   else:
     # define try
-    my_folder = df["directory"][my_try]
+    my_folder = "GPT3/"+df["directory"][my_try]
 
     # define prompt
     my_prompt = df["prompt"][my_try]
