@@ -20,3 +20,7 @@ General information about ELTeC releases is available at https://github.com/COST
 
 The texts created with GPT-3 will be saved in the "GPT3" folder, divided by different generation strategies (called "tries").  
 
+## Requirements
+
+Scripts have been tested with Python 3.9.2 and R 4.2.1.  
+To install required packages, run `pip install -r requirements_python.txt` and `Rscript requirements_R.R`
