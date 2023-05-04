@@ -7,6 +7,8 @@ library(reshape2)
 ### Section 1. Define baseline with Eltec
 ######
 
+### 1. Prepare corpora
+
 # read files from ELTEC level 1 format
 all_files <- list.files("level1", full.names = T)
 
@@ -74,6 +76,8 @@ test_texts <- all_texts[selection]
 # split the test set into 5,000-word chunks 
 test_texts <- lapply(test_texts, function(x) split(x, ceiling(seq_along(x)/5000)))
 test_texts <- lapply(test_texts, function(x) x[-length(x)])
+
+### 2. Apply Stylometry
 
 # verify stylometry efficiency on train set
 stylo(gui = F,
@@ -155,6 +159,88 @@ names_tmp <- strsplit(names(result_tmp), "_")
 names_tmp <- lapply(names_tmp, function(x) x[1])
 names(result_tmp) <- names_tmp
 write.csv(result_tmp, file = "Stylometry_baseline.csv")
+
+### 3. Alternative Method: Find baseline with joint pieces of text
+
+# prepare alternative test set
+test_texts <- all_texts[selection]
+
+# split the test set into 250-word chunks 
+test_texts <- lapply(test_texts, function(x) split(x, ceiling(seq_along(x)/250)))
+test_texts <- lapply(test_texts, function(x) x[-length(x)])
+
+# find how many chunks are necessary to reach 5,000 words
+n_chunks <- round(5000/250)
+
+# prepare loop for attribution quality
+attribution_quality_m2 <- list()
+n_repetitions <- 30
+
+# verify if loop was already done
+if(file.exists("Stylometry_baseline_m2.RData")){
+  load("Stylometry_baseline_m2.RData")
+}else{
+  for(i in 1:length(test_texts)){
+    
+    print(i)
+    
+    attribution_quality_m2[[i]] <- rep(0, n_repetitions)
+    
+    for(n in 1:n_repetitions){
+      
+      merged_test <- unlist(test_texts[[i]][sample(1:length(test_texts[[i]]), n_chunks)])
+      
+      new_corpus <- c(train_texts, test = list(merged_test))
+      
+      stylo_result <- stylo(gui = F,
+                            mfw.min = 150,
+                            mfw.max = 150,
+                            mfw.incr = 0,
+                            distance.measure = "wurzburg",
+                            parsed.corpus = new_corpus)
+      
+      # calculate quality
+      distances_table <- stylo_result$distance.table
+      
+      name <- colnames(distances_table)
+      name <- strsplit(name, "_")
+      name <- sapply(name, function(x) x[1])
+      name <- name[-length(name)]
+      
+      distances_table_tmp <- data.frame(name, distance = as.vector(distances_table[dim(distances_table)[1],1:(dim(distances_table)[1]-1)]))
+      
+      distances_mean <- distances_table_tmp %>%
+        group_by(name) %>%
+        summarize(distance = mean(distance))
+      
+      prediction <- distances_mean$name[which.min(distances_mean$distance)]
+      actual <- distances_mean$name[i]
+      
+      if(prediction == actual)
+        attribution_quality_m2[[i]][n] <- 1
+      
+    }
+    
+  }
+  
+  save(attribution_quality_m2, file = "Stylometry_baseline_m2.RData")
+
+}
+
+# check attribution quality overall
+mean(unlist(attribution_quality_m2))
+length(unlist(attribution_quality_m2))
+
+#check per author
+result_tmp <- sapply(attribution_quality_m2, mean)
+names(result_tmp) <- names(test_texts)
+result_tmp
+
+# save to .csv
+names_tmp <- strsplit(names(result_tmp), "_")
+names_tmp <- lapply(names_tmp, function(x) x[1])
+names(result_tmp) <- names_tmp
+write.csv(result_tmp, file = "Stylometry_baseline_m2.csv")
 
 ######
 ### Section 2. GPT-3
