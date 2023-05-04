@@ -6,7 +6,7 @@ Scripts for the paper "GPT-3 vs. Delta. Applying stylometry to large language mo
 
 This repository contains two scripts, written in the Python and R programming languages:  
 - **gpt3_create_novels.py** generates texts with GPT3 by using the [OpenAI API](https://openai.com/blog/openai-api) (features for text generation are read from the *gpt3_features.csv* file). You can call the script via `python gpt3_create_novels.py`. Before running it, remember to modify it at line 7, by adding your OpenAI API key.
-- **Stylometric_analyses.R** performs stylometric analyses on the generated texts by using the *stylo* package. As the script is conceived for active exploration, I suggest opening it and running it via graphical interfaces like [RStudio](https://posit.co/download/rstudio-desktop/) or [PositCloud](https://posit.co/products/cloud/cloud/).
+- **Stylometric_analyses.R** performs stylometric analyses on the generated texts by using the [stylo](https://github.com/computationalstylistics/stylo) package. As the script is conceived for active exploration, I suggest running it via graphical interfaces like [RStudio](https://posit.co/download/rstudio-desktop/) or [PositCloud](https://posit.co/products/cloud/cloud/).
 
 ## Corpora
 
