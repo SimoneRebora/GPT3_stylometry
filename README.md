@@ -1,6 +1,6 @@
 # Applying Stylometry to GPT-3 texts
 
-Scripts for the paper "GPT-3 vs. Delta. Applying stylometry to large language models", presented at the *AIUCD2023* Conference.
+Scripts for the paper "GPT-3 vs. Delta. Applying stylometry to large language models", presented at the *AIUCD2023* Conference ([slides](https://docs.google.com/presentation/d/10Fq6a4HP8D6W3ouHesAccOKaBPKhTudxET0tavBODtQ/edit?usp=sharing)).
 
 ## Scripts
 
